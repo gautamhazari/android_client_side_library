@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.gsma.mobileconnect.r2.android.clientside">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <application
+        android:allowBackup="false"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:extractNativeLibs="false"
+        android:hardwareAccelerated="true">
+
+        <activity android:name="com.gsma.mobileconnect.r2.android.clientside.activity.MainActivity" android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.gsma.mobileconnect.r2.android.clientside.activity.ResultsActivity"
+            android:label="@string/results_activity_title"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode = "singleTask">
+        </activity>
+
+        <activity
+            android:name="com.gsma.mobileconnect.r2.android.clientside.activity.AboutActivity"
+            android:label="@string/action_about"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask">
+        </activity>
+
+    </application>
+</manifest>

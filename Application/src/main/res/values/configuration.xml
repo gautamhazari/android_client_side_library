@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="server_endpoint">hostname/server_side_api/start_discovery</string>
+    <string name="msisdn">447700900907</string>
+    <string name="mcc_value">907</string>
+    <string name="mnc_value">07</string>
+
+</resources>

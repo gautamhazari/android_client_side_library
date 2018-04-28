@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single"
+        tools:ignore="ExtraText">
+        <item android:id="@+id/nav_client_side_app" android:icon="@drawable/ic_touch_app"
+            android:title="@string/client_side_app" />
+    </group>
+
+    <group android:title="@string/more">
+        <item android:id="@+id/nav_about" android:icon="@drawable/ic_about_outline"
+            android:title="@string/action_about" />
+    </group>
+
+</menu>

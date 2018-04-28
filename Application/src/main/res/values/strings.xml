@@ -1,0 +1,68 @@
+<resources>
+
+    <!--Application-->
+    <string name="app_name">Mobile Connect</string>
+
+    <string name="action_about">About</string>
+    <string name="more">More</string>
+    <string name="client_side_app">Client Side App</string>
+    <string name="nav_header_info">Client Side</string>
+
+    <!--Dialogs-->
+    <string name="ok">OK</string>
+    <string name="error">Error</string>
+    <string name="error_request">Error occurred sending request to the server</string>
+    <string name="dialog_closed">Dialog closed</string>
+
+    <!--Main activity-->
+    <!--Client side app fragment-->
+    <string name="phone_number">Phone number</string>
+    <string name="mcc">Mcc</string>
+    <string name="mnc">Mnc</string>
+    <string name="none">None</string>
+    <string name="ip_address">IP address</string>
+    <string name="ip_address_hint">Type your IP address</string>
+    <string name="using_msisdn">Using MSISDN</string>
+    <string name="with_ip_address">With IP address</string>
+    <string name="using_mcc_mnc">Using MCC_MNC</string>
+    <string name="using_ip_address">Using IP address</string>
+    <string name="type_your_msisdn">Please, type your msisdn</string>
+    <string name="type_your_mcc">Please, type your mcc</string>
+    <string name="type_your_mnc">Please, type your mnc</string>
+    <string name="type_your_ip_address">Please, type your IP address</string>
+
+    <!--Results Activity-->
+    <string name="id_token">ID Token</string>
+    <string name="id_token_key">id_token</string>
+    <string name="token_key">token</string>
+    <string name="access_token">Access Token</string>
+    <string name="access_token_key">access_token</string>
+    <string name="message">Message</string>
+    <string name="message_key">message</string>
+    <string name="status_key">status</string>
+    <string name="identity">Identity</string>
+    <string name="identity_key">identity</string>
+    <string name="user_info">User Info</string>
+    <string name="user_info_key">userinfo</string>
+    <string name="not_string_mess">Value isn\'t a String.</string>
+
+    <!--Results activity-->
+    <string name="results_activity_title">"Results"</string>
+    <string name="successful_request_message">Successful Authorization</string>
+    <string name="failed_receive_token">Failed to receive access token. Please try again.</string>
+    <string name="failed_receive_id_token">Failed to receive id token. Please try again.</string>
+    <string name="unable_to_get_client_name">Unable to get client name</string>
+    <string name="address">address</string>
+    <string name="results_key">results</string>
+
+    <!--Navigation drawer-->
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+
+    <!--Empty string-->
+    <string name="empty_string"></string>
+
+    <!--About Activity-->
+    <string name="about_information">This example Client Side application demonstrates how to integrate Client Side with Server Side.</string>
+
+</resources>

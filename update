@@ -1,0 +1,9 @@
+#/bin/bash 
+cp mobile-connect-sdk/app/build/outputs/aar/mobile-connect-android-sdk-debug.aar mobile-connect-demo/app-debug
+cp mobile-connect-sdk/app/build/outputs/aar/mobile-connect-android-sdk-debug.aar mobile-connect-demo/app/libs
+cp mobile-connect-sdk/app/build/outputs/aar/mobile-connect-android-sdk-debug.aar mobile-connect-demo2/app-debug
+cp mobile-connect-sdk/app/build/outputs/aar/mobile-connect-android-sdk-debug.aar mobile-connect-demo2/app/libs
+cp mobile-connect-sdk/app/build/outputs/aar/mobile-connect-android-sdk-debug.aar mobile-connect-demo3/app-debug
+cp mobile-connect-sdk/app/build/outputs/aar/mobile-connect-android-sdk-debug.aar mobile-connect-demo3/app/libs
+
+
