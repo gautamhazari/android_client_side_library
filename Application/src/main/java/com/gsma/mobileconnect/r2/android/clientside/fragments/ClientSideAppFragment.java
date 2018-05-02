@@ -23,6 +23,7 @@ import com.gsma.mobileconnect.r2.android.clientside.filters.InputFilters;
 import com.gsma.mobileconnect.r2.android.clientside.interfaces.ICallback;
 import com.gsma.mobileconnect.r2.android.clientside.interfaces.OnBackPressedListener;
 import com.gsma.mobileconnect.r2.android.clientside.utils.HttpUtils;
+import com.gsma.mobileconnect.r2.android.clientside.utils.IpUtils;
 import com.gsma.mobileconnect.r2.android.clientside.utils.NetworkUtils;
 import com.gsma.mobileconnect.r2.android.clientside.utils.StringUtils;
 import com.gsma.mobileconnect.r2.android.clientside.view.MobileConnectView;
@@ -66,7 +67,7 @@ public class ClientSideAppFragment extends Fragment implements OnBackPressedList
                     tvIpAddress.setText(getResources().getString(R.string.msisdn));
                 } else {
                     layoutIpAddress.setVisibility(View.GONE);
-                    tvIpAddress.setText(null);
+                    tvIpAddress.setText(IpUtils.getIPAddress(true));
                 }
             }
         });

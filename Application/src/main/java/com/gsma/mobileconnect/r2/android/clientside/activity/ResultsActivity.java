@@ -84,6 +84,7 @@ public class ResultsActivity extends BaseActivity {
             }
         }
         catch (final JSONException e) {
+            Log.e(TAG, "Not valid json");
             e.printStackTrace();
         }
     }
