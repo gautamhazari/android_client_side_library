@@ -13,7 +13,7 @@ public class SettingsUtils {
     @SuppressLint("SetJavaScriptEnabled")
     public static WebSettings getDefaultWebSettings(WebSettings webSettings) {
         final WebSettings settings = webSettings;
-        //enabling Java Script.
+        //enabling Java Script support.
         settings.setJavaScriptEnabled(true);
         settings.setCacheMode(WebSettings.LOAD_NO_CACHE);
         settings.setSupportMultipleWindows(false);
