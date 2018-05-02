@@ -10,12 +10,14 @@ import com.gsma.mobileconnect.r2.android.clientside.constants.Constants;
  */
 public class InputFilters {
 
-    //Expression to validate IP address
+    //Regular expression to validate the IP address
     private final static String IP_EXPRESSION = "^\\d{1,3}(\\.(\\d{1,3}(\\.(\\d{1,3}(\\.(\\d{1,3})?)?)?)?)?)?";
+    private final static String IP_SEPARATOR = "\\.";
+    private final static int IP_MAX_VALUE = 255;
 
     /**
      * Contains regulations of IP address.
-     * @return filter fo IP adress.
+     * @return filter for IP address.
      */
     public static InputFilter [] getIpFilter() {
         InputFilter[] inputFilter = new InputFilter[1];
@@ -32,9 +34,9 @@ public class InputFilters {
                             .matches(IP_EXPRESSION)) {
                         return Constants.EMPTY_STRING;
                     } else {
-                        String[] splits = resultingTxt.split("\\.");
+                        String[] splits = resultingTxt.split(IP_SEPARATOR);
                         for (String split : splits) {
-                            if (Integer.valueOf(split) > 255) {
+                            if (Integer.valueOf(split) > IP_MAX_VALUE) {
                                 return Constants.EMPTY_STRING;
                             }
                         }

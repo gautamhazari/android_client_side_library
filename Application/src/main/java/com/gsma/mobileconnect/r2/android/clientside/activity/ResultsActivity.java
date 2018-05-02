@@ -8,7 +8,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.gsma.mobileconnect.r2.android.clientside.R;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 

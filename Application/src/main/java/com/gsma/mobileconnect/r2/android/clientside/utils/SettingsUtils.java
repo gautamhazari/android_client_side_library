@@ -7,9 +7,8 @@ import android.webkit.WebSettings;
 public class SettingsUtils {
 
     /**
-     * Sets configuration for {@link com.gsma.mobileconnect.r2.android.clientside.view.InteractiveWebView}.
      * @param webSettings
-     * @return
+     * @return configuration for {@link com.gsma.mobileconnect.r2.android.clientside.view.InteractiveWebView}.
      */
     @SuppressLint("SetJavaScriptEnabled")
     public static WebSettings getDefaultWebSettings(WebSettings webSettings) {

@@ -7,8 +7,6 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
-import com.gsma.mobileconnect.r2.android.clientside.utils.SettingsUtils;
-
 /**
  * A custom {@link WebView} to enable Javascript
  */

@@ -9,7 +9,7 @@ public class NetworkUtils {
 
     /**
      * @param context - application context
-     * @return the numeric name (MCC+MNC) of current SIM card operator.
+     * @return the numeric name (MCC+MNC) of the current SIM card operator.
      */
     private static String getNetworkOperator(Context context) {
         return getTelephonyManager(context).getSimOperator();
@@ -25,9 +25,8 @@ public class NetworkUtils {
     }
 
     /**
-     *
      * @param context - application context
-     * @return MCC of current SIM card operator.
+     * @return MCC of the current SIM card operator.
      */
     public static String getMCC(Context context) {
         String network = getNetworkOperator(context);
@@ -35,9 +34,8 @@ public class NetworkUtils {
     }
 
     /**
-     *
      * @param context - application context
-     * @return MCC of current SIM card operator.
+     * @return MNC of the current SIM card operator.
      */
     public static String getMNC(Context context) {
         String network = getNetworkOperator(context);

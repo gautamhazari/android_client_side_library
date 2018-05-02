@@ -20,10 +20,10 @@ public class HttpUtils {
     private static final String TAG = HttpUtils.class.getSimpleName();
 
     /**
-     * generates GET request to the server side endpoint (from your configuration).
-     * @param url
-     * @param params
-     * @return
+     * Generates GET request to the server side endpoint (from your configuration).
+     * @param url - server side endpoint
+     * @param params - the request parameters
+     * @return GET request to the server side endpoint
      */
     public static String createGetWithParams(String url, List<NameValuePair> params) {
         StringBuilder builder = new StringBuilder();
@@ -46,10 +46,10 @@ public class HttpUtils {
 
     /**
      * Creates list of parameters in {@link NameValuePair} format.
-     * @param msisdn
-     * @param mcc
-     * @param mnc
-     * @param ipAddress
+     * @param msisdn - phone number.
+     * @param mcc - mobile country code
+     * @param mnc - mobile network code
+     * @param ipAddress - IP-Address.
      * @return list of parameters for request.
      */
     public static List<NameValuePair> prepareParameters(String msisdn, String mcc, String mnc, String ipAddress) {

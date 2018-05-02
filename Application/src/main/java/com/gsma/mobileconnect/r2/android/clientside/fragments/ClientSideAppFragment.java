@@ -22,8 +22,8 @@ import com.gsma.mobileconnect.r2.android.clientside.activity.ResultsActivity;
 import com.gsma.mobileconnect.r2.android.clientside.filters.InputFilters;
 import com.gsma.mobileconnect.r2.android.clientside.interfaces.ICallback;
 import com.gsma.mobileconnect.r2.android.clientside.interfaces.OnBackPressedListener;
-import com.gsma.mobileconnect.r2.android.clientside.tasks.AuthenticationTask;
 import com.gsma.mobileconnect.r2.android.clientside.utils.HttpUtils;
+import com.gsma.mobileconnect.r2.android.clientside.utils.NetworkUtils;
 import com.gsma.mobileconnect.r2.android.clientside.utils.StringUtils;
 import com.gsma.mobileconnect.r2.android.clientside.view.MobileConnectView;
 
@@ -71,10 +71,8 @@ public class ClientSideAppFragment extends Fragment implements OnBackPressedList
             }
         });
 
-        //Current device SIM mcc.
-        tvMcc.setText(getString(R.string.mcc_value));
-        //Current device SIM mnc.
-        tvMnc.setText(getString(R.string.mnc_value));
+        tvMcc.setText(NetworkUtils.getMCC(getContext()));
+        tvMnc.setText(NetworkUtils.getMNC(getContext()));
 
         rbMsisdn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -200,7 +198,7 @@ public class ClientSideAppFragment extends Fragment implements OnBackPressedList
     }
 
     /**
-     * Waits for callback with the result and start Results activity putting in it the results.
+     * Waits for callback with the result and starts {@link ResultsActivity} putting in it the results.
      * @param result - response from server side application in JSON format.
      */
     @Override

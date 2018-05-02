@@ -15,7 +15,6 @@ import android.widget.Toast;
 import com.gsma.mobileconnect.r2.android.clientside.R;
 import com.gsma.mobileconnect.r2.android.clientside.constants.Constants;
 import com.gsma.mobileconnect.r2.android.clientside.interfaces.IAuthenticationWebViewClient;
-import com.gsma.mobileconnect.r2.android.clientside.tasks.AuthenticationTask;
 import com.gsma.mobileconnect.r2.android.clientside.view.DiscoveryAuthenticationDialog;
 
 /**
