@@ -3,14 +3,16 @@ GSMA MobileConnect Android Client Side Library
 Mobile Connect is a mobile identity service based on the OpenID Connect & OAuth2 where end users can authenticate themselves using their mobile phone via Mobile Connect. This allows them access to websites and applications without the need to remember passwords and usernames. It’s safe, secure and no personal information is shared without their permission.
 
 This example client side application demonstrates how to integrate client side library with server side library.
-Your client side library will work only with server side library.
+
+Note: Your client side library will work only with server side library.
 
 ## Quick Start
 - Open the configuration file: (local-path/Application/src/main/res/values/configuration.xml/)
 Be sure to provide your server side endpoint (endpoint of your server side library).
 You can also configure your msisdn, if it's necessary.
 - Build the [Application](./Application/).
-- With your configuration specified in the configuration file or using user interface, you have everything you need to make a successful call to the server side library.
+- The Application works in three modes (MSISDN, MCC_MNC, None). Also you can configure the IP Address.
+- With your configuration specified in the configuration file and using user interface, you have everything you need to make a successful call to the server side library by pressing 'Mobile Connect' button.
 
 Note: if you operate in the EU then you should use EU Discovery Service domain in discovery URL: eu.discovery.mobileconnect.io
 
