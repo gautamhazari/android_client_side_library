@@ -6,10 +6,10 @@ This example client side application demonstrates how to integrate client side l
 Your client side library will work only with server side library.
 
 ## Quick Start
-- Open the configuration file: (./Application/src/main/res/values/configuration.xml)
+- Open the configuration file: (./Application/src/main/res/values/configuration.xml/)
 Be sure to provide your server side endpoint (endpoint of your server side library).
 You can also configure your msisdn, if it's necessary.
-- Build the [Application](./Application/)
+- Build the [Application](./Application/).
 - With your configuration specified in the configuration file or using user interface, you have everything you need to make a successful call to the server side library.
 
 Note: if you operate in the EU then you should use EU Discovery Service domain in discovery URL: eu.discovery.mobileconnect.io
