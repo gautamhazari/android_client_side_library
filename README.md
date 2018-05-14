@@ -6,7 +6,7 @@ This example client side application demonstrates how to integrate client side l
 Your client side library will work only with server side library.
 
 ## Quick Start
-- Open the configuration file: (./Application/src/main/res/values/configuration.xml/)
+- Open the configuration file: (./Application/src/main/res/values/)
 Be sure to provide your server side endpoint (endpoint of your server side library).
 You can also configure your msisdn, if it's necessary.
 - Build the [Application](./Application/).
