@@ -14,7 +14,7 @@ You can also configure your msisdn, if it's necessary.
 - The Application works in three modes (MSISDN, MCC_MNC, None). Also you can configure the IP Address.
 - With your configuration specified in the configuration file and using user interface, you have everything you need to make a successful call to the server side library by pressing 'Mobile Connect' button.
 
-Note: if you operate in the EU then you should use EU Discovery Service domain in discovery URL: eu.discovery.mobileconnect.io
+Note: if you operate in the EU then you should use EU Discovery Service domain in discovery URL: eu.discover.mobileconnect.io
 
 ## Support
 
