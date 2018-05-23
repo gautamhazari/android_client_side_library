@@ -1,10 +1,14 @@
 package com.gsma.mobileconnect.r2.android.clientside.fragments;
 
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +29,7 @@ import com.gsma.mobileconnect.r2.android.clientside.interfaces.OnBackPressedList
 import com.gsma.mobileconnect.r2.android.clientside.utils.HttpUtils;
 import com.gsma.mobileconnect.r2.android.clientside.utils.IpUtils;
 import com.gsma.mobileconnect.r2.android.clientside.utils.NetworkUtils;
+import com.gsma.mobileconnect.r2.android.clientside.utils.PhoneNumberUtils;
 import com.gsma.mobileconnect.r2.android.clientside.utils.StringUtils;
 import com.gsma.mobileconnect.r2.android.clientside.view.MobileConnectView;
 
@@ -79,8 +84,37 @@ public class ClientSideAppFragment extends Fragment implements OnBackPressedList
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 checkRadioButtonsAndSetView(view);
+                if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+                    if (ContextCompat.checkSelfPermission(getActivity(),
+                            Manifest.permission.READ_PHONE_STATE)
+                            != PackageManager.PERMISSION_GRANTED) {
+
+                        // Permission is not granted
+                        // Should we show an explanation?
+                        if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                                Manifest.permission.READ_PHONE_STATE)) {
+                            // Show an explanation to the user *asynchronously* -- don't block
+                            // this thread waiting for the user's response! After the user
+                            // sees the explanation, try again to request the permission.
+                        } else {
+                            // No explanation needed; request the permission
+                            ActivityCompat.requestPermissions(getActivity(),
+                                    new String[]{Manifest.permission.READ_PHONE_STATE}, 1);
+
+                            // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
+                            // app-defined int constant. The callback method gets the
+                            // result of the request.
+                        }
+                    } else {
+
+                    }
+                } else {
+                    tvMsisdn.setText(PhoneNumberUtils.getPhoneNumber(getContext(), getActivity()));
+
+                }
             }
         });
+
 
         rbMccMnc.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -138,6 +172,24 @@ public class ClientSideAppFragment extends Fragment implements OnBackPressedList
         return view;
     }
 
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case 1: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    tvMsisdn.setText(PhoneNumberUtils.getPhoneNumber(getContext(), getActivity()));
+                } else {
+                    tvMsisdn.setText("Cannot get phone number");
+                }
+                return;
+            }
+        }
+    }
 
     /**
      * Initialization of UI elements at the current fragment.

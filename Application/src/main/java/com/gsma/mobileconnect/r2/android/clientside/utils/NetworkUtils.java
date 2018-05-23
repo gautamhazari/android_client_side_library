@@ -20,7 +20,7 @@ public class NetworkUtils {
      * @param context - application context
      * @return telephony features of the device.
      */
-    private static TelephonyManager getTelephonyManager(Context context) {
+    public static TelephonyManager getTelephonyManager(Context context) {
         return (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
     }
 
