@@ -19,15 +19,13 @@ buildscript {
     }
 }
 
-//apply plugin: "org.sonarqube"
-
 allprojects {
     repositories {
         jcenter()
         mavenLocal()
-        flatDir {
-            dirs 'libs'
-        }
+//        flatDir {
+//            dirs 'libs'
+//        }
         maven {
             url 'https://maven.google.com/'
             name 'Google'
