@@ -24,7 +24,6 @@ import com.gsma.mobileconnect.r2.android.clientside.interfaces.ICallback;
 import com.gsma.mobileconnect.r2.android.clientside.interfaces.OnBackPressedListener;
 import com.gsma.mobileconnect.r2.android.clientside.utils.HttpUtils;
 import com.gsma.mobileconnect.r2.android.clientside.utils.IpUtils;
-import com.gsma.mobileconnect.r2.android.clientside.utils.NetworkUtils;
 import com.gsma.mobileconnect.r2.android.clientside.utils.StringUtils;
 import com.gsma.mobileconnect.r2.android.clientside.view.MobileConnectView;
 
@@ -70,8 +69,8 @@ public class ClientSideAppFragment extends Fragment implements OnBackPressedList
             }
         });
 
-        tvMcc.setText(NetworkUtils.getMCC(getContext()));
-        tvMnc.setText(NetworkUtils.getMNC(getContext()));
+        tvMcc.setText(R.string.mcc_value);
+        tvMnc.setText(R.string.mnc_value);
         tvMsisdn.setText(getResources().getString(R.string.msisdn));
         tvIpAddress.setText(IpUtils.getIPAddress(true));
         rbMsisdn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -143,19 +142,19 @@ public class ClientSideAppFragment extends Fragment implements OnBackPressedList
      * @param view
      */
     private void init(View view) {
-        cbIp = (CheckBox)view.findViewById(R.id.cbIp);
-        layoutMsisdn = (LinearLayout)view.findViewById(R.id.layoutMsisdn);
-        layoutMcc = (LinearLayout)view.findViewById(R.id.layoutMcc);
-        layoutMnc = (LinearLayout)view.findViewById(R.id.layoutMnc);
-        layoutIpAddress = (LinearLayout)view.findViewById(R.id.layoutIpAddress);
-        rbMsisdn = (RadioButton)view.findViewById(R.id.rbMsisdn);
-        rbMccMnc = (RadioButton)view.findViewById(R.id.rbMccMnc);
-        rbNone = (RadioButton)view.findViewById(R.id.rbNone);
-        tvMsisdn = (EditText) view.findViewById(R.id.txbMsisdn);
-        tvMcc = (EditText)view.findViewById(R.id.txbMcc);
-        tvMnc = (EditText)view.findViewById(R.id.txbMnc);
-        tvIpAddress = (EditText)view.findViewById(R.id.txbIpAddress);
-        btnMobileConnect = (Button)view.findViewById(R.id.btnMCDemo);
+        cbIp = view.findViewById(R.id.cbIp);
+        layoutMsisdn = view.findViewById(R.id.layoutMsisdn);
+        layoutMcc = view.findViewById(R.id.layoutMcc);
+        layoutMnc = view.findViewById(R.id.layoutMnc);
+        layoutIpAddress = view.findViewById(R.id.layoutIpAddress);
+        rbMsisdn = view.findViewById(R.id.rbMsisdn);
+        rbMccMnc = view.findViewById(R.id.rbMccMnc);
+        rbNone = view.findViewById(R.id.rbNone);
+        tvMsisdn = view.findViewById(R.id.txbMsisdn);
+        tvMcc = view.findViewById(R.id.txbMcc);
+        tvMnc = view.findViewById(R.id.txbMnc);
+        tvIpAddress = view.findViewById(R.id.txbIpAddress);
+        btnMobileConnect = view.findViewById(R.id.btnMCDemo);
     }
 
     /**
