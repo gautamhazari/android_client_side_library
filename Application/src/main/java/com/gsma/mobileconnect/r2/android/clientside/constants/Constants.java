@@ -9,6 +9,7 @@ public class Constants {
     public static final String SOURCE_IP = "sourceIp";
     public static final String CODE = "code";
     public static final String CODE_PARAM = "code=";
+    public static final String ERROR_PARAM = "error=";
     public static final String STATE = "state";
     public static final String STATE_PARAM = "state=";
     public static final String ERROR = "error";

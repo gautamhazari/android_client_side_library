@@ -2,6 +2,7 @@ package com.gsma.mobileconnect.r2.android.clientside.webviewclient;
 
 
 import android.annotation.TargetApi;
+import android.net.Uri;
 import android.net.UrlQuerySanitizer;
 import android.util.Log;
 import android.view.View;
@@ -51,7 +52,6 @@ public class AuthenticationWebViewClient extends WebViewClient implements IAuthe
 
     private String getErrorStatus(final String url) {
         final UrlQuerySanitizer sanitizer = new UrlQuerySanitizer(url);
-        final String error = sanitizer.getValue(Constants.ERROR);
         String errorDescription = sanitizer.getValue(Constants.ERROR_DESCRIPTION);
         if (errorDescription == null) {
             errorDescription = sanitizer.getValue(Constants.DESCRIPTION);
@@ -70,6 +70,13 @@ public class AuthenticationWebViewClient extends WebViewClient implements IAuthe
         if (url.contains(Constants.CODE_PARAM) && url.contains(Constants.STATE_PARAM)) {
             view.loadUrl(url);
             Toast.makeText(view.getContext(), view.getContext().getString(R.string.dialog_closed), Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (url.contains(Constants.ERROR_PARAM)) {
+            String error = Uri.parse(url).getQueryParameter(Constants.ERROR);
+            String errorDescription = getErrorStatus(url);
+            Log.w(TAG, String.format("Error while authorisation session: %s - %s", error, errorDescription));
+            dialog.cancel();
+            Toast.makeText(view.getContext(), String.format("Error occurred while authorisation session: %s, %s", error, errorDescription), Toast.LENGTH_SHORT).show();
             return true;
         } else {
             view.loadUrl(url);
