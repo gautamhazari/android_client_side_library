@@ -12,9 +12,11 @@ Note: if you operate in the EU then you should use EU Discovery Service domain i
 - Gradle Wrapper v3.5.1
 
 ## Quick Start
-- Open the configuration file: (local-path/Application/src/main/res/values/configuration.xml/)
+- Open the configuration file: (local-path/Application/src/main/res/values/configuration.xml/).
 Be sure to provide your server side endpoint.
+
 Note: you can not change the server side endpoint while application is running. 
+
 You can also configure your MSISDN, MCC and MNC, if it's necessary. You can change them while application is running.
 
 - Build the [Application](./Application/).
