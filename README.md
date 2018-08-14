@@ -6,15 +6,22 @@ This example client side application demonstrates how to integrate client side l
 
 Note: if you operate in the EU then you should use EU Discovery Service domain in discovery URL: eu.discover.mobileconnect.io
 
+## Pre-requisites
+- Android SDK 20
+- Android Build Tools v27.0.3
+- Gradle Wrapper v3.5.1
+
 ## Quick Start
 - Open the configuration file: (local-path/Application/src/main/res/values/configuration.xml/)
 Be sure to provide your server side endpoint.
-You can also configure your msisdn, if it's necessary.
+Note: you can not change the server side endpoint while application is running. 
+You can also configure your MSISDN, MCC and MNC, if it's necessary. You can change them while application is running.
+
 - Build the [Application](./Application/).
 - The Application works in three modes (MSISDN, MCC_MNC, None). Also you can configure the IP Address.
 - With your configuration specified in the configuration file and using user interface, you have everything you need to make a successful call to the server side library by pressing 'Mobile Connect' button.
 
-Note: Your client side library will work only with server side library.
+Note: Your client side library will work only with server side library. Please, see links to the [server side libraries](#resources).
 
 ## Support
 

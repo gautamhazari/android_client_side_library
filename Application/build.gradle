@@ -6,7 +6,7 @@ android {
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "my.application.id"
-        minSdkVersion 15
+        minSdkVersion 20
         targetSdkVersion 24
         versionCode 1
         versionName "1.0.0"
@@ -45,7 +45,6 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
