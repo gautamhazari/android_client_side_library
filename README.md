@@ -7,9 +7,9 @@ This example client side application demonstrates how to integrate client side l
 Note: if you operate in the EU then you should use EU Discovery Service domain in discovery URL: eu.discover.mobileconnect.io
 
 ## Pre-requisites
-- Android SDK 20
-- Android Build Tools v27.0.3
-- Gradle Wrapper v3.5.1
+- Android SDK 20 or higher
+- Android Build Tools v27.0.3 or higher
+- Gradle Wrapper v3.5.1 or higher
 
 ## Quick Start
 - Open the configuration file: (local-path/Application/src/main/res/values/configuration.xml/).
