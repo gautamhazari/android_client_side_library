@@ -32,9 +32,9 @@ import org.apache.http.NameValuePair;
 import java.util.List;
 
 
-public class ClientSideAppFragment extends Fragment implements OnBackPressedListener, ICallback {
+public class WithDiscoveryAppFragment extends Fragment implements OnBackPressedListener, ICallback {
 
-    private static final String TAG = ClientSideAppFragment.class.getSimpleName();
+    private static final String TAG = WithDiscoveryAppFragment.class.getSimpleName();
 
     private Button btnMobileConnect;
     private LinearLayout layoutMsisdn;
@@ -139,6 +139,7 @@ public class ClientSideAppFragment extends Fragment implements OnBackPressedList
 
     /**
      * Initialization of UI elements at the current fragment.
+     *
      * @param view
      */
     private void init(View view) {
@@ -162,20 +163,21 @@ public class ClientSideAppFragment extends Fragment implements OnBackPressedList
      */
     @Override
     public void onBackPressed() {
-       getActivity().onBackPressed();
+        getActivity().onBackPressed();
     }
 
 
     /**
      * Checks wich radio button is selected and opens configuration view for it.
+     *
      * @param view
      */
-    private void checkRadioButtonsAndSetView (View view) {
+    private void checkRadioButtonsAndSetView(View view) {
         if (rbMsisdn.isChecked()) {
             layoutMsisdn.setVisibility(View.VISIBLE);
             layoutMcc.setVisibility(View.GONE);
             layoutMnc.setVisibility(View.GONE);
-        } else if (rbMccMnc.isChecked()){
+        } else if (rbMccMnc.isChecked()) {
             layoutMsisdn.setVisibility(View.GONE);
             layoutMcc.setVisibility(View.VISIBLE);
             layoutMnc.setVisibility(View.VISIBLE);
@@ -184,7 +186,7 @@ public class ClientSideAppFragment extends Fragment implements OnBackPressedList
             layoutMcc.setVisibility(View.GONE);
             layoutMnc.setVisibility(View.GONE);
             layoutIpAddress.setVisibility(View.GONE);
-            InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
     }
@@ -198,6 +200,7 @@ public class ClientSideAppFragment extends Fragment implements OnBackPressedList
 
     /**
      * Waits for callback with the result and starts {@link ResultsActivity} putting in it the results.
+     *
      * @param result - response from server side application in JSON format.
      */
     @Override

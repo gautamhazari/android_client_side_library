@@ -17,6 +17,7 @@
     <!--Main activity-->
     <!--Client side app fragment-->
     <string name="phone_number">Phone number</string>
+    <string name="phone_number_msisdn">Phone number (MSISDN)</string>
     <string name="mcc">Mcc</string>
     <string name="mnc">Mnc</string>
     <string name="none">None</string>

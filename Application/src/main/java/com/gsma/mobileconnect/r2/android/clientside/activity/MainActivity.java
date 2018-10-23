@@ -16,7 +16,7 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 
 import com.gsma.mobileconnect.r2.android.clientside.R;
-import com.gsma.mobileconnect.r2.android.clientside.fragments.ClientSideAppFragment;
+import com.gsma.mobileconnect.r2.android.clientside.fragments.WithDiscoveryAppFragment;
 
 public class MainActivity extends BaseActivity {
 
@@ -37,18 +37,18 @@ public class MainActivity extends BaseActivity {
 
         fragmentManager = getSupportFragmentManager();
 
-        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawer = findViewById(R.id.drawer_layout);
         drawerToggle = setupDrawerToggle();
         mDrawer.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
 
-        nvDrawer = (NavigationView) findViewById(R.id.nav_view);
+        nvDrawer = findViewById(R.id.nav_view);
         StrictMode.ThreadPolicy policy =
                 new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         Fragment fragment = null;
         try {
-            fragment = (Fragment) ClientSideAppFragment.class.newInstance();
+            fragment = WithDiscoveryAppFragment.class.newInstance();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -114,7 +114,7 @@ public class MainActivity extends BaseActivity {
         Fragment fragment = null;
         switch(menuItem.getItemId()) {
             case R.id.nav_client_side_app:
-                openFragment(fragment, ClientSideAppFragment.class, menuItem);
+                openFragment(fragment, WithDiscoveryAppFragment.class, menuItem);
                 break;
             case R.id.nav_about:
                 openActivity(AboutActivity.class);
@@ -148,12 +148,12 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void init() {
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {

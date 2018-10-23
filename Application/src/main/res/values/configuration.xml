@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="server_endpoint">http://localhost:8080/server_side_api/start_discovery</string>
+    <string name="server_endpoint">http://172.19.2.20:8080/server_side_api/start_discovery</string>
     <!--Sandbox Operator-A values provided, please, use your actual data.-->
     <string name="msisdn">447700900901</string>
+    <string name="wihout_discovery_msisdn">447700900901</string>
     <!--You can parse MCC and MNC from the device using getMcc() and getMnc()
     methods from the NetworkUtils.class-->
     <string name="mcc_value">901</string>
