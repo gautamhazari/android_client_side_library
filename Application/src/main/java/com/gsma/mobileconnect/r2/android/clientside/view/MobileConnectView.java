@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.util.ArrayMap;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.WindowManager;
@@ -14,7 +15,10 @@ import android.widget.RelativeLayout;
 
 import com.gsma.mobileconnect.r2.android.clientside.R;
 import com.gsma.mobileconnect.r2.android.clientside.constants.Constants;
+import com.gsma.mobileconnect.r2.android.clientside.utils.RequestUtils;
 import com.gsma.mobileconnect.r2.android.clientside.webviewclient.AuthenticationWebViewClient;
+
+import java.util.Map;
 
 
 public class MobileConnectView {
@@ -28,8 +32,8 @@ public class MobileConnectView {
     private void initWebView(@NonNull Context activityContext, @NonNull String authenticationUrl) {
         final RelativeLayout webViewLayout = (RelativeLayout) LayoutInflater.from(activityContext)
                 .inflate(R.layout.layout_web_view, null);
-        final InteractiveWebView webView = (InteractiveWebView) webViewLayout.findViewById(R.id.web_view);
-        final ProgressBar progressBar = (ProgressBar) webViewLayout.findViewById(R.id.progressBar);
+        final InteractiveWebView webView = webViewLayout.findViewById(R.id.web_view);
+        final ProgressBar progressBar = webViewLayout.findViewById(R.id.progressBar);
         final DiscoveryAuthenticationDialog dialog = new DiscoveryAuthenticationDialog(activityContext);
 
         dialog.setOnCancelListener(new DialogInterface.OnCancelListener()
@@ -46,8 +50,11 @@ public class MobileConnectView {
         Uri uri = Uri.parse(authenticationUrl);
         String redirectUrl = uri.getQueryParameter("redirect_uri");
         final AuthenticationWebViewClient webViewClient = new AuthenticationWebViewClient(dialog, progressBar, redirectUrl);
+        Map<String, String> additionalHttpHeaders = new ArrayMap<>();
+        String version = String.format("Android-%s", RequestUtils.getCurrentLibVersion(activityContext));
+        additionalHttpHeaders.put(Constants.CLIENT_SIDE_VERSION_HEADER, version);
         webView.setWebViewClient(webViewClient);
-        webView.loadUrl(authenticationUrl);
+        webView.loadUrl(authenticationUrl, additionalHttpHeaders);
         try {
             dialog.show();
         } catch (final WindowManager.BadTokenException exception) {
