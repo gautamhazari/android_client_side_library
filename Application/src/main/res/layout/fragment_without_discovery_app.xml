@@ -34,8 +34,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:hint="@string/phone_subscriber_id"
-                        android:maxLines="1"
-                        android:minLines="1"
                         android:text="@string/subscriber_id" />
                 </android.support.design.widget.TextInputLayout>
 

@@ -48,7 +48,7 @@ public class WithoutDiscoveryAppFragment extends Fragment {
 
     private void sendWithoutDiscoveryRequest(String subscriberId) {
         List<NameValuePair> params = HttpUtils.prepareParameters(subscriberId);
-        final String requestUrl = HttpUtils.createGetWithParams(getString(R.string.server_endpoint_with_discovery_endpoint), params);
+        final String requestUrl = HttpUtils.createGetWithParams(getString(R.string.server_endpoint_without_discovery_endpoint), params);
         MobileConnectView mobileConnectView = new MobileConnectView();
         mobileConnectView.startAuthentication(getContext(), requestUrl);
     }
