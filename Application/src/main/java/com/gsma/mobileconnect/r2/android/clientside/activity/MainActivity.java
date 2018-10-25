@@ -17,6 +17,7 @@ import android.view.WindowManager;
 
 import com.gsma.mobileconnect.r2.android.clientside.R;
 import com.gsma.mobileconnect.r2.android.clientside.fragments.WithDiscoveryAppFragment;
+import com.gsma.mobileconnect.r2.android.clientside.fragments.WithoutDiscoveryAppFragment;
 
 public class MainActivity extends BaseActivity {
 
@@ -113,8 +114,11 @@ public class MainActivity extends BaseActivity {
     private void selectDrawerItem(MenuItem menuItem) {
         Fragment fragment = null;
         switch(menuItem.getItemId()) {
-            case R.id.nav_client_side_app:
+            case R.id.nav_demo_app_with_discovery:
                 openFragment(fragment, WithDiscoveryAppFragment.class, menuItem);
+                break;
+            case R.id.nav_demo_app_without_discovery:
+                openFragment(fragment, WithoutDiscoveryAppFragment.class, menuItem);
                 break;
             case R.id.nav_about:
                 openActivity(AboutActivity.class);

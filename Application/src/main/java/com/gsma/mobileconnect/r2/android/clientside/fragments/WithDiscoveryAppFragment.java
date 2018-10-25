@@ -193,7 +193,7 @@ public class WithDiscoveryAppFragment extends Fragment implements OnBackPressedL
 
     private void sendDiscoveryRequest(String msisdn, String mcc, String mnc, String ipAddress) {
         List<NameValuePair> params = HttpUtils.prepareParameters(msisdn, mcc, mnc, ipAddress);
-        final String requestUrl = HttpUtils.createGetWithParams(getString(R.string.server_endpoint), params);
+        final String requestUrl = HttpUtils.createGetWithParams(getString(R.string.server_endpoint_with_discovery_endpoint), params);
         MobileConnectView mobileConnectView = new MobileConnectView();
         mobileConnectView.startAuthentication(getContext(), requestUrl);
     }

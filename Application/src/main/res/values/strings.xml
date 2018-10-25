@@ -5,7 +5,8 @@
 
     <string name="action_about">About</string>
     <string name="more">More</string>
-    <string name="client_side_app">Client Side App</string>
+    <string name="demo_app_with_discovery">With Discovery Demo</string>
+    <string name="demo_app_without_discovery">Without Discovery Demo</string>
     <string name="nav_header_info">Client Side</string>
 
     <!--Dialogs-->
@@ -18,6 +19,7 @@
     <!--Client side app fragment-->
     <string name="phone_number">Phone number</string>
     <string name="phone_number_msisdn">Phone number (MSISDN)</string>
+    <string name="phone_subscriber_id">Subscriber ID (ENCR_MSISDN)</string>
     <string name="mcc">Mcc</string>
     <string name="mnc">Mnc</string>
     <string name="none">None</string>

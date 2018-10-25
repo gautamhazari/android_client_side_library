@@ -4,8 +4,18 @@
 
     <group android:checkableBehavior="single"
         tools:ignore="ExtraText">
-        <item android:id="@+id/nav_client_side_app" android:icon="@drawable/ic_touch_app"
-            android:title="@string/client_side_app" />
+        <item
+            android:id="@+id/nav_demo_app_with_discovery"
+            android:icon="@drawable/ic_touch_app"
+            android:title="@string/demo_app_with_discovery" />
+    </group>
+    <group
+        android:checkableBehavior="single"
+        tools:ignore="ExtraText">
+        <item
+            android:id="@+id/nav_demo_app_without_discovery"
+            android:icon="@drawable/ic_touch_app"
+            android:title="@string/demo_app_without_discovery" />
     </group>
 
     <group android:title="@string/more">
