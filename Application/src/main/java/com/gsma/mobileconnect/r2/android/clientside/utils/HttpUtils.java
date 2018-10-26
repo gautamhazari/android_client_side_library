@@ -65,4 +65,18 @@ public class HttpUtils {
         }
         return params;
     }
+
+    /**
+     * Creates list of parameters in {@link NameValuePair} format.
+     *
+     * @param subscriberId - encrypted msisdn (encrypted phone number).
+     * @return list of parameters for request.
+     */
+    public static List<NameValuePair> prepareParameters(String subscriberId) {
+        List<NameValuePair> params = new LinkedList<>();
+        if (!StringUtils.isNullOrEmpty(subscriberId)) {
+            params.add(new BasicNameValuePair(Constants.SUBSCRIBER_ID, subscriberId));
+        }
+        return params;
+    }
 }
