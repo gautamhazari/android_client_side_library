@@ -7,9 +7,9 @@ This example client side application demonstrates how to integrate client side l
 Note: if you operate in the EU then you should use EU Discovery Service domain in discovery URL: eu.discover.mobileconnect.io
 
 ## Pre-requisites
-- Android SDK 20
-- Android Build Tools v27.0.3
-- Gradle Wrapper v3.5.1
+- Android SDK 20 or higher
+- Android Build Tools v27.0.3 or higher
+- Gradle Wrapper v3.5.1 or higher
 
 ## Quick Start
 - Open the configuration file: (local-path/Application/src/main/res/values/configuration.xml/).
@@ -30,10 +30,10 @@ Note: Your client side library will work only with server side library. Please, 
 If you encounter any issues which are not resolved by consulting the resources below then [send us a message](https://developer.mobileconnect.io/content/contact-us)
 
 ## Resources
-
-- [MobileConnect Discovery API Information](https://developer.mobileconnect.io/discovery-api)
-- [MobileConnect Authentication API Information](https://developer.mobileconnect.io/mobile-connect-api)
-- [MobileConnect Authentication API (v2.0) Information](https://developer.mobileconnect.io/mobile-connect-profile-v2-0)
+- [MobileConnect Android Client Side Library](https://developer.mobileconnect.io/content/android-client-side-library)
 - [MobileConnect Java Server Side Library](https://developer.mobileconnect.io/content/java-server-side-library)
 - [MobileConnect .NET Server Side Library](https://developer.mobileconnect.io/content/net-server-side-library)
 - [MobileConnect PHP Server Side Library](https://developer.mobileconnect.io/content/php-server-side-library)
+- [MobileConnect Authentication API Information](https://developer.mobileconnect.io/mobile-connect-api)
+- [MobileConnect Authentication API (v2.0) Information](https://developer.mobileconnect.io/mobile-connect-profile-v2-0)
+- [MobileConnect Discovery API Information](https://developer.mobileconnect.io/discovery-api)
