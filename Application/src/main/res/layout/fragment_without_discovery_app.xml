@@ -29,12 +29,12 @@
                     android:layout_height="wrap_content">
 
                     <android.support.design.widget.TextInputEditText
-                        android:id="@+id/txbSubscriberIdWD"
+                        android:id="@+id/txbMsisdnIdWD"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:hint="@string/phone_subscriber_id"
-                        android:text="@string/subscriber_id" />
+                        android:hint="@string/phone_msisdn_id"
+                        android:text="@string/msisdn_wd" />
                 </android.support.design.widget.TextInputLayout>
 
 

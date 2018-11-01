@@ -23,7 +23,7 @@ public class WithoutDiscoveryAppFragment extends Fragment {
 
     private Button btnMobileConnect;
     private LinearLayout layoutMsisdn;
-    private EditText tvSubscriberId;
+    private EditText tvMsisdn;
 
 
     @Override
@@ -34,11 +34,11 @@ public class WithoutDiscoveryAppFragment extends Fragment {
         btnMobileConnect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String subscriberId = tvSubscriberId.getText().toString();
-                if (!StringUtils.isNullOrEmpty(subscriberId)) {
-                    sendWithoutDiscoveryRequest(subscriberId);
+                String msisdn = tvMsisdn.getText().toString();
+                if (!StringUtils.isNullOrEmpty(msisdn)) {
+                    sendWithoutDiscoveryRequest(msisdn);
                 } else {
-                    Toast.makeText(getContext(), "SubscriberId is empty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "MSISDN is empty", Toast.LENGTH_SHORT).show();
                     sendWithoutDiscoveryRequest("");
                 }
             }
@@ -46,8 +46,8 @@ public class WithoutDiscoveryAppFragment extends Fragment {
         return view;
     }
 
-    private void sendWithoutDiscoveryRequest(String subscriberId) {
-        List<NameValuePair> params = HttpUtils.prepareParameters(subscriberId);
+    private void sendWithoutDiscoveryRequest(String msisdn) {
+        List<NameValuePair> params = HttpUtils.prepareParameters(msisdn);
         final String requestUrl = HttpUtils.createGetWithParams(getString(R.string.server_endpoint_without_discovery_endpoint), params);
         MobileConnectView mobileConnectView = new MobileConnectView();
         mobileConnectView.startAuthentication(getContext(), requestUrl);
@@ -55,7 +55,7 @@ public class WithoutDiscoveryAppFragment extends Fragment {
 
     private void init(View view) {
         layoutMsisdn = view.findViewById(R.id.layoutMsisdnWD);
-        tvSubscriberId = view.findViewById(R.id.txbSubscriberIdWD);
+        tvMsisdn = view.findViewById(R.id.txbMsisdnIdWD);
         btnMobileConnect = view.findViewById(R.id.btnMCDemoWD);
     }
 }

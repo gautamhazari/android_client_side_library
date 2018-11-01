@@ -4,7 +4,6 @@ package com.gsma.mobileconnect.r2.android.clientside.constants;
 public class Constants {
 
     public static final String MSISDN = "msisdn";
-    public static final String SUBSCRIBER_ID = "subscriberId";
     public static final String CLIENT_SIDE_VERSION_HEADER = "Client-Side-Version";
     public static final String MCC = "mcc";
     public static final String MNC = "mnc";

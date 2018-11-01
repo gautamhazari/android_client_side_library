@@ -69,13 +69,13 @@ public class HttpUtils {
     /**
      * Creates list of parameters in {@link NameValuePair} format.
      *
-     * @param subscriberId - encrypted msisdn (encrypted phone number).
+     * @param msisdn - encrypted msisdn (encrypted phone number).
      * @return list of parameters for request.
      */
-    public static List<NameValuePair> prepareParameters(String subscriberId) {
+    public static List<NameValuePair> prepareParameters(String msisdn) {
         List<NameValuePair> params = new LinkedList<>();
-        if (!StringUtils.isNullOrEmpty(subscriberId)) {
-            params.add(new BasicNameValuePair(Constants.SUBSCRIBER_ID, subscriberId));
+        if (!StringUtils.isNullOrEmpty(msisdn)) {
+            params.add(new BasicNameValuePair(Constants.MSISDN, msisdn));
         }
         return params;
     }
