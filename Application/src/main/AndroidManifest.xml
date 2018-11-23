@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.gsma.mobileconnect.r2.android.clientside">
+    package="com.gsma.mobileconnect.r2.android.application">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
@@ -14,7 +14,9 @@
         android:extractNativeLibs="false"
         android:hardwareAccelerated="true">
 
-        <activity android:name="com.gsma.mobileconnect.r2.android.clientside.activity.MainActivity" android:label="@string/app_name"
+        <activity
+            android:name="com.gsma.mobileconnect.r2.android.application.activity.MainActivity"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,14 +25,14 @@
         </activity>
 
         <activity
-            android:name="com.gsma.mobileconnect.r2.android.clientside.activity.ResultsActivity"
+            android:name="com.gsma.mobileconnect.r2.android.application.activity.ResultsActivity"
             android:label="@string/results_activity_title"
             android:theme="@style/AppTheme.NoActionBar"
             android:launchMode = "singleTask">
         </activity>
 
         <activity
-            android:name="com.gsma.mobileconnect.r2.android.clientside.activity.AboutActivity"
+            android:name="com.gsma.mobileconnect.r2.android.application.activity.AboutActivity"
             android:label="@string/action_about"
             android:theme="@style/AppTheme.NoActionBar"
             android:launchMode="singleTask">

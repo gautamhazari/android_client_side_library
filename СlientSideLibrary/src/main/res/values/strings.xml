@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ClientSideLibrary</string>
+    <string name="dialog_closed">Dialog closed</string>
+
+</resources>
