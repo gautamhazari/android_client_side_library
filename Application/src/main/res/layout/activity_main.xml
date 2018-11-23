@@ -5,7 +5,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.gsma.mobileconnect.r2.android.clientside.activity.MainActivity">
+    tools:context="com.gsma.mobileconnect.r2.android.application.activity.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -13,13 +13,12 @@
     <string name="ok">OK</string>
     <string name="error">Error</string>
     <string name="error_request">Error occurred sending request to the server</string>
-    <string name="dialog_closed">Dialog closed</string>
 
     <!--Main activity-->
     <!--Client side app fragment-->
     <string name="phone_number">Phone number</string>
     <string name="phone_number_msisdn">Phone number (MSISDN)</string>
-    <string name="phone_subscriber_id">Subscriber ID (ENCR_MSISDN)</string>
+    <string name="phone_msisdn_id">MSISDN</string>
     <string name="mcc">Mcc</string>
     <string name="mnc">Mnc</string>
     <string name="none">None</string>

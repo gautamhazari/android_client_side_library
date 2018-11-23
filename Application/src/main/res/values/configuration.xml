@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="server_endpoint_with_discovery_endpoint">http://35.176.148.159:8083/php-server-side-library/public/callback</string>
-    <string name="server_endpoint_without_discovery_endpoint">http://35.176.148.159:8083/php-server-side-library/public/start_authentication_wd</string>
+    <string name="server_endpoint_with_discovery_endpoint">http://3.8.5.176:8080/mobile-connect/server_side_api/start_discovery</string>
+    <string name="server_endpoint_without_discovery_endpoint">http://3.8.5.176:8080/mobile-connect/server_side_api/start_discovery_manually</string>
     <!--Sandbox Operator-A values provided, please, use your actual data.-->
-    <string name="msisdn">447700900901</string>
-    <string name="subscriber_id">eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIiwia2lkIjoib3BlcmF0b3ItYl9lbmMiLCJ0eXAiOiJKV0UifQ.HRNoaRw71Dz5oubhXOktdAfZeDBFELZk0uQm7si34pi1dFpbelApUka-qlN1au77NV218iWyz_BDrsj4L7v4gDKMoZKmCnFP60g0pqOhHCc5AzfAfAoR_nPpr_nytZTklFkgJe_fUH42yyesgjhqBJ_6dG-mBwxlqKvIgp2KK-mA-Pj6jCIgNj-y3IH1-K38NTKCJYNT554zJ9McnQ1dh0U_UFP6SPanQI2PfFkDFle_ApXJT9h131GOVmdRJqHVuV8TC-2J_vZgSRVFFSkBxqK4MVC-Dj_ogPNjO3K4wh8xh0xKLfjQBK96VdCmp4DLXJs9KMfZFXVNl66srvlNsQ.BWeKqUf0qQx8hiRIflIbnQ.pOEFIHcmyviudF7xygT-vg.Of-IbmTZH-0drgwAuKFa_3MjUrpdK3noh9dr0_IsG0Q</string>
+    <string name="msisdn">447700900301</string>
+    <string name="msisdn_wd">447700900301</string>
     <!--You can parse MCC and MNC from the device using getMcc() and getMnc()
     methods from the NetworkUtils.class-->
-    <string name="mcc_value">901</string>
+    <string name="mcc_value">903</string>
     <string name="mnc_value">01</string>
 </resources>
