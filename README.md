@@ -19,7 +19,7 @@ Note: you can not change the server side endpoint while application is running.
 
 You can also configure your MSISDN, MCC and MNC, if it's necessary. You can change them while application is running.
 
-- Build the [Application](./Application/).
+- Build the [Application](./Application/) and [ClientSideLibrary](./ClientSideLibrary/).
 - The Application works in three modes (MSISDN, MCC_MNC, None). Also you can configure the IP Address.
 - With your configuration specified in the configuration file and using user interface, you have everything you need to make a successful call to the server side library by pressing 'Mobile Connect' button.
 
