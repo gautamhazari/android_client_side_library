@@ -13,7 +13,6 @@
     <string name="ok">OK</string>
     <string name="error">Error</string>
     <string name="error_request">Error occurred sending request to the server</string>
-    <string name="dialog_closed">Dialog closed</string>
 
     <!--Main activity-->
     <!--Client side app fragment-->
