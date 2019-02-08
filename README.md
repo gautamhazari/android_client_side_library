@@ -28,10 +28,9 @@ Be sure to provide your server side endpoint or server side without discovery en
 
 Note: you can not change the server side endpoints while application is running. 
 
-You can also configure your MSISDN, MCC and MNC, IP address for With Discovery App if it's necessary. Or you can configure MSISDN for With Discovery App. You can change the parameters above while application is running (expect server side endpoints).
+You can also configure your MSISDN, MCC and MNC, IP address for With Discovery App if it's necessary, or you can configure MSISDN for Without Discovery App. You can change the parameters above while application is running (except server side endpoints).
 
 - Build the [Application](./Application/) and [ClientSideLibrary](./ClientSideLibrary/).
-- The Application works in three modes (MSISDN, MCC_MNC, None). Also you can use the IP Address as optional item for each mode.
 - With your configuration specified in the configuration file and using user interface, you have everything you need to make a successful call to the server side library by pressing 'Mobile Connect' button.
 
 Note: Your client side library will work only with server side library. Please, see links to the [server side libraries](#resources).
