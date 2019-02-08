@@ -3,6 +3,7 @@ GSMA MobileConnect Android Client Side Library
 Mobile Connect is a mobile identity service based on the OpenID Connect & OAuth2 where end users can authenticate themselves using their mobile phone via Mobile Connect. This allows them access to websites and applications without the need to remember passwords and usernames. It’s safe, secure and no personal information is shared without their permission.
 
 This example client side application demonstrates how to integrate client side library with server side library.
+Application folder includes With Discovery and Without Discovery modes.
 
 Note: if you operate in the EU then you should use EU Discovery Service domain in discovery URL: eu.discover.mobileconnect.io
 
@@ -12,15 +13,25 @@ Note: if you operate in the EU then you should use EU Discovery Service domain i
 - Gradle Wrapper v3.5.1 or higher
 
 ## Quick Start
+- Download the Mobile Connect client side library.
+- Open project in Android Studio.
+- Download and install any missing dependencies or plugins from the links displayed in the console output.
 - Open the configuration file: (local-path/Application/src/main/res/values/configuration.xml/).
-Be sure to provide your server side endpoint.
+Here are the following parameters for With Discovery and Without Discovery modes:
+(<string name="server_endpoint_with_discovery_endpoint">your server side endpoint for demo with discovery</string>
+    <string name="server_endpoint_without_discovery_endpoint">your server side endpoint for demo without discovery</string>
+    <string name="msisdn">default msisdn</string>
+    <string name="msisdn_wd">default msisdn for without discovery mode</string>
+    <string name="mcc_value">default mcc</string>
+    <string name="mnc_value">default mnc</string>)
+Be sure to provide your server side endpoint or server side without discovery endpoint to interact with server side SDK.
 
-Note: you can not change the server side endpoint while application is running. 
+Note: you can not change the server side endpoints while application is running. 
 
-You can also configure your MSISDN, MCC and MNC, if it's necessary. You can change them while application is running.
+You can also configure your MSISDN, MCC and MNC, IP address for With Discovery App if it's necessary. Or you can configure MSISDN for With Discovery App. You can change the parameters above while application is running (expect server side endpoints).
 
 - Build the [Application](./Application/) and [ClientSideLibrary](./ClientSideLibrary/).
-- The Application works in three modes (MSISDN, MCC_MNC, None). Also you can configure the IP Address.
+- The Application works in three modes (MSISDN, MCC_MNC, None). Also you can use the IP Address as optional item for each mode.
 - With your configuration specified in the configuration file and using user interface, you have everything you need to make a successful call to the server side library by pressing 'Mobile Connect' button.
 
 Note: Your client side library will work only with server side library. Please, see links to the [server side libraries](#resources).
