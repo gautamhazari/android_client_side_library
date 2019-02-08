@@ -34,10 +34,10 @@ With your configuration specified in the configuration (```server_endpoint_witho
 Without Discovery works in MSISDN mode only.
 THe example request: ```http://server_side_without_discovery_endpoint?msisdn=your_msisdn```
 
-#General
+# General
 After pressing Mobile Connect button you will see Web View Dialog.
 Here you can find session status.
 Please check 'References' item to navigate details like source code.
 
-#References
+# References
 - [Android library](https://developer.mobileconnect.io/android-library)
