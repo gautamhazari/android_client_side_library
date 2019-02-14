@@ -36,9 +36,9 @@ public class IpUtils {
                     }
                 }
             }
-        } catch (Exception ex) {
+        } catch (Exception e) {
             Log.e(TAG, "Error occurred getting network interfaces");
-            ex.printStackTrace();
+            e.printStackTrace();
         }
         return "Error in getting device IP";
     }
