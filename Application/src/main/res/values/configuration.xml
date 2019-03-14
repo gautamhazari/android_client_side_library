@@ -3,10 +3,10 @@
     <string name="server_endpoint_with_discovery_endpoint">http://3.8.5.176:8080/mobile-connect/server_side_api/start_discovery</string>
     <string name="server_endpoint_without_discovery_endpoint">http://3.8.5.176:8080/mobile-connect/server_side_api/start_discovery_manually</string>
     <!--Sandbox Operator-A values provided, please, use your actual data.-->
-    <string name="msisdn">447700900301</string>
-    <string name="msisdn_wd">447700900301</string>
+    <string name="msisdn"></string>
+    <string name="msisdn_wd"></string>
     <!--You can parse MCC and MNC from the device using getMcc() and getMnc()
     methods from the NetworkUtils.class-->
-    <string name="mcc_value">903</string>
-    <string name="mnc_value">01</string>
+    <string name="mcc_value"></string>
+    <string name="mnc_value"></string>
 </resources>
