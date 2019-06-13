@@ -68,6 +68,33 @@ public class HttpUtils {
 
     /**
      * Creates list of parameters in {@link NameValuePair} format.
+     * @param msisdn - phone number.
+     * @param mcc - mobile country code
+     * @param mnc - mobile network code
+     * @param ipAddress - IP-Address.
+     * @return list of parameters for request.
+     */
+    public static List<NameValuePair> prepareParameters(String msisdn, String mcc, String mnc, String ipAddress,
+                                                        String discoveryUrl, String scope, String version, boolean ignoreAuth) {
+        List<NameValuePair> params = new LinkedList<>();
+        if (!StringUtils.isNullOrEmpty(msisdn)) {
+            params.add(new BasicNameValuePair(Constants.MSISDN, msisdn));
+        } else if (!StringUtils.isNullOrEmpty(mcc) && !StringUtils.isNullOrEmpty(mnc)) {
+            params.add(new BasicNameValuePair(Constants.MCC, mcc));
+            params.add(new BasicNameValuePair(Constants.MNC, mnc));
+        }
+        if (!StringUtils.isNullOrEmpty(ipAddress)) {
+            params.add(new BasicNameValuePair(Constants.SOURCE_IP, ipAddress));
+        }
+        params.add(new BasicNameValuePair(Constants.VERSION, version));
+        params.add(new BasicNameValuePair(Constants.SCOPE, scope));
+        params.add(new BasicNameValuePair(Constants.DISCOVERY, discoveryUrl));
+        params.add(new BasicNameValuePair(Constants.IGNORE_AUTH, String.valueOf(ignoreAuth)));
+        return params;
+    }
+
+    /**
+     * Creates list of parameters in {@link NameValuePair} format.
      *
      * @param msisdn - encrypted msisdn (encrypted phone number).
      * @return list of parameters for request.

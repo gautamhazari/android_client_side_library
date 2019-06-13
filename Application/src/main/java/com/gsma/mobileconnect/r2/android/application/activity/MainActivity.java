@@ -17,8 +17,8 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 
 import com.gsma.mobileconnect.r2.android.application.R;
-import com.gsma.mobileconnect.r2.android.application.fragments.WithDiscoveryAppFragment;
-import com.gsma.mobileconnect.r2.android.application.fragments.WithoutDiscoveryAppFragment;
+import com.gsma.mobileconnect.r2.android.application.fragments.CommonFragment;
+import com.gsma.mobileconnect.r2.android.application.fragments.IndianFragment;
 
 public class MainActivity extends BaseActivity {
 
@@ -52,7 +52,7 @@ public class MainActivity extends BaseActivity {
         StrictMode.setThreadPolicy(policy);
         Fragment fragment = null;
         try {
-            fragment = WithDiscoveryAppFragment.class.newInstance();
+            fragment = CommonFragment.class.newInstance();
         } catch (Exception e) {
             Log.e(TAG, "Unable to create Without Discovery fragment");
             e.printStackTrace();
@@ -119,11 +119,11 @@ public class MainActivity extends BaseActivity {
     private void selectDrawerItem(MenuItem menuItem) {
         Fragment fragment = null;
         switch(menuItem.getItemId()) {
-            case R.id.nav_demo_app_with_discovery:
-                openFragment(fragment, WithDiscoveryAppFragment.class, menuItem);
+            case R.id.nav_demo_app_common:
+                openFragment(fragment, CommonFragment.class, menuItem);
                 break;
-            case R.id.nav_demo_app_without_discovery:
-                openFragment(fragment, WithoutDiscoveryAppFragment.class, menuItem);
+            case R.id.nav_demo_app_indian:
+                openFragment(fragment, IndianFragment.class, menuItem);
                 break;
             case R.id.nav_about:
                 openActivity(AboutActivity.class);

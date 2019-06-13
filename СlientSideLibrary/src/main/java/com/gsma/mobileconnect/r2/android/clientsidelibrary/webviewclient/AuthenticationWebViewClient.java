@@ -71,13 +71,13 @@ public class AuthenticationWebViewClient extends WebViewClient implements IAuthe
             view.loadUrl(url);
             Toast.makeText(view.getContext(), view.getContext().getString(R.string.dialog_closed), Toast.LENGTH_SHORT).show();
             return true;
-        } else if (url.contains(Constants.ERROR_PARAM)) {
-            String error = Uri.parse(url).getQueryParameter(Constants.ERROR);
-            String errorDescription = getErrorStatus(url);
-            Log.w(TAG, String.format("Error while authorisation session: %s - %s", error, errorDescription));
-            dialog.cancel();
-            Toast.makeText(view.getContext(), String.format("Error occurred while authorisation session: %s, %s", error, errorDescription), Toast.LENGTH_SHORT).show();
-            return true;
+//        } else if (url.contains(Constants.ERROR_PARAM)) {
+//            String error = Uri.parse(url).getQueryParameter(Constants.ERROR);
+//            String errorDescription = getErrorStatus(url);
+//            Log.w(TAG, String.format("Error while authorisation session: %s - %s", error, errorDescription));
+//            dialog.cancel();
+//            Toast.makeText(view.getContext(), String.format("Error occurred while authorisation session: %s, %s", error, errorDescription), Toast.LENGTH_SHORT).show();
+//            return true;
         } else {
             view.loadUrl(url);
             return false;

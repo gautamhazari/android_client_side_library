@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="server_endpoint_with_discovery_endpoint">http://3.8.5.176:8080/mobile-connect/server_side_api/start_discovery</string>
-    <string name="server_endpoint_without_discovery_endpoint">http://3.8.5.176:8080/mobile-connect/server_side_api/start_discovery_manually</string>
+    <string name="server_endpoint_with_discovery_endpoint">http://3.8.5.176:8080/mobile-connect-sc/server_side_api/start_discovery</string>
     <!--Sandbox Operator-A values provided, please, use your actual data.-->
     <string name="msisdn"></string>
     <string name="msisdn_wd"></string>

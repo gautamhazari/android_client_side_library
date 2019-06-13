@@ -5,8 +5,8 @@
 
     <string name="action_about">About</string>
     <string name="more">More</string>
-    <string name="demo_app_with_discovery">With Discovery Demo</string>
-    <string name="demo_app_without_discovery">Without Discovery Demo</string>
+    <string name="demo_app_common">Common</string>
+    <string name="demo_app_indian">Indian</string>
     <string name="nav_header_info">Client Side</string>
 
     <!--Dialogs-->
@@ -21,7 +21,7 @@
     <string name="phone_msisdn_id">MSISDN</string>
     <string name="mcc">Mcc</string>
     <string name="mnc">Mnc</string>
-    <string name="none">None</string>
+    <string name="none">Discovery UI</string>
     <string name="ip_address">IP address</string>
     <string name="ip_address_hint">Type your IP address</string>
     <string name="using_msisdn">Using MSISDN</string>
@@ -66,5 +66,6 @@
 
     <!--About Activity-->
     <string name="about_information">This example Client Side application demonstrates how to integrate Client Side with Server Side.</string>
+    <string name="with_discovery_only">With Discovery Only</string>
 
 </resources>

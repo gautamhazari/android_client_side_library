@@ -5,17 +5,17 @@
     <group android:checkableBehavior="single"
         tools:ignore="ExtraText">
         <item
-            android:id="@+id/nav_demo_app_with_discovery"
+            android:id="@+id/nav_demo_app_common"
             android:icon="@drawable/ic_touch_app"
-            android:title="@string/demo_app_with_discovery" />
+            android:title="@string/demo_app_common" />
     </group>
     <group
         android:checkableBehavior="single"
         tools:ignore="ExtraText">
         <item
-            android:id="@+id/nav_demo_app_without_discovery"
+            android:id="@+id/nav_demo_app_indian"
             android:icon="@drawable/ic_touch_app"
-            android:title="@string/demo_app_without_discovery" />
+            android:title="@string/demo_app_indian" />
     </group>
 
     <group android:title="@string/more">

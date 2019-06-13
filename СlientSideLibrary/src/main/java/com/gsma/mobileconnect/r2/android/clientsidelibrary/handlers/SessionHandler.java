@@ -25,4 +25,14 @@ public class SessionHandler {
         MobileConnectView mobileConnectView = new MobileConnectView();
         mobileConnectView.startAuthentication(context, requestUrl);
     }
+
+    public void startDiscoverySession(Context context, String msisdn, String mcc, String mnc,
+                                      String ipAddress, String serverSideWithDiscoveryEndpoint,
+                                      String discoveryEndpont, String scope, String version, boolean ignoreAuth) {
+        List<NameValuePair> params = HttpUtils.prepareParameters(msisdn, mcc, mnc, ipAddress,
+                discoveryEndpont, scope, version, ignoreAuth);
+        final String requestUrl = HttpUtils.createGetWithParams(serverSideWithDiscoveryEndpoint, params);
+        MobileConnectView mobileConnectView = new MobileConnectView();
+        mobileConnectView.startAuthentication(context, requestUrl);
+    }
 }
