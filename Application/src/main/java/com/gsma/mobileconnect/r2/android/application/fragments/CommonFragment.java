@@ -1,32 +1,17 @@
 package com.gsma.mobileconnect.r2.android.application.fragments;
 
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.gsma.mobileconnect.r2.android.application.R;
-import com.gsma.mobileconnect.r2.android.application.activity.ResultsActivity;
-import com.gsma.mobileconnect.r2.android.application.interfaces.OnBackPressedListener;
-import com.gsma.mobileconnect.r2.android.clientsidelibrary.filters.InputFilters;
 import com.gsma.mobileconnect.r2.android.clientsidelibrary.handlers.SessionHandler;
-import com.gsma.mobileconnect.r2.android.clientsidelibrary.interfaces.ICallback;
-import com.gsma.mobileconnect.r2.android.clientsidelibrary.utils.IpUtils;
 import com.gsma.mobileconnect.r2.android.clientsidelibrary.utils.StringUtils;
 
 import static com.gsma.mobileconnect.r2.android.clientsidelibrary.constants.Constants.ADDRESS;
@@ -38,6 +23,7 @@ import static com.gsma.mobileconnect.r2.android.clientsidelibrary.constants.Cons
 import static com.gsma.mobileconnect.r2.android.clientsidelibrary.constants.Constants.IDENTITY_NATIONALID;
 import static com.gsma.mobileconnect.r2.android.clientsidelibrary.constants.Constants.IDENTITY_PHONE;
 import static com.gsma.mobileconnect.r2.android.clientsidelibrary.constants.Constants.IDENTITY_SIGNUP;
+import static com.gsma.mobileconnect.r2.android.clientsidelibrary.constants.Constants.INDIAN_DISCOVERY;
 import static com.gsma.mobileconnect.r2.android.clientsidelibrary.constants.Constants.MC_DI_R2_V2_3;
 import static com.gsma.mobileconnect.r2.android.clientsidelibrary.constants.Constants.MC_V1_1;
 import static com.gsma.mobileconnect.r2.android.clientsidelibrary.constants.Constants.MC_V2_0;
@@ -48,24 +34,9 @@ import static com.gsma.mobileconnect.r2.android.clientsidelibrary.constants.Cons
 import static com.gsma.mobileconnect.r2.android.clientsidelibrary.constants.Constants.SINGAPORE_DISCOVERY;
 
 
-public class CommonFragment extends Fragment implements OnBackPressedListener, ICallback {
+public class CommonFragment extends BaseFragment {
 
-    private static final String TAG = CommonFragment.class.getSimpleName();
 
-    private Button btnMobileConnect;
-    private LinearLayout layoutMsisdn;
-    private LinearLayout layoutMcc;
-    private LinearLayout layoutMnc;
-    private LinearLayout layoutIpAddress;
-    private RadioButton rbMsisdn;
-    private RadioButton rbMccMnc;
-    private RadioButton rbNone;
-    private EditText tvMsisdn;
-    private EditText tvMcc;
-    private EditText tvMnc;
-    private EditText tvIpAddress;
-    private CheckBox cbIp;
-    private CheckBox ignoreAuth;
     private Spinner discoverySpinner;
     private Spinner versionSpinner;
     private Spinner commonScopesSpinner;
@@ -84,44 +55,7 @@ public class CommonFragment extends Fragment implements OnBackPressedListener, I
 
         createSpinner();
 
-        cbIp.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (cbIp.isChecked()) {
-                    layoutIpAddress.setVisibility(View.VISIBLE);
-                } else {
-                    layoutIpAddress.setVisibility(View.GONE);
-                }
-            }
-        });
-
-        tvMcc.setText(R.string.mcc_value);
-        tvMnc.setText(R.string.mnc_value);
-        tvMsisdn.setText(getResources().getString(R.string.msisdn));
-        tvIpAddress.setText(IpUtils.getIPAddress(true));
-        rbMsisdn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                checkRadioButtonsAndSetView(view);
-            }
-        });
-
-
-        rbMccMnc.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                checkRadioButtonsAndSetView(view);
-            }
-        });
-
-        rbNone.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                checkRadioButtonsAndSetView(view);
-            }
-        });
-
-        tvIpAddress.setFilters(InputFilters.getIpFilter());
+        onCreateSetter(view);
 
         btnMobileConnect.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -165,7 +99,19 @@ public class CommonFragment extends Fragment implements OnBackPressedListener, I
                         versionSpinner.getSelectedItem().toString(), ignoreAuth.isChecked());
             }
         });
+
+        onClickMobileConnectButton();
         return view;
+    }
+
+    @Override
+    protected void startDiscoverySession(String msisdn, String mcc, String mnc, String ip) {
+        SessionHandler sessionHandler = new SessionHandler();
+        sessionHandler.startDiscoverySession(getContext(), msisdn, mcc, mnc, ip,
+                getString(R.string.server_endpoint_with_discovery_endpoint),
+                discoverySpinner.getSelectedItem().toString(),
+                commonScopesSpinner.getSelectedItem().toString(),
+                versionSpinner.getSelectedItem().toString(), ignoreAuth.isChecked());
     }
 
     private void createSpinner() {
@@ -220,74 +166,15 @@ public class CommonFragment extends Fragment implements OnBackPressedListener, I
      *
      * @param view
      */
-    private void init(View view) {
-        cbIp = view.findViewById(R.id.cbIp);
-        ignoreAuth = view.findViewById(R.id.ignoreAuth);
-        layoutMsisdn = view.findViewById(R.id.layoutMsisdn);
-        layoutMcc = view.findViewById(R.id.layoutMcc);
-        layoutMnc = view.findViewById(R.id.layoutMnc);
-        layoutIpAddress = view.findViewById(R.id.layoutIpAddress);
-        rbMsisdn = view.findViewById(R.id.rbMsisdn);
-        rbMccMnc = view.findViewById(R.id.rbMccMnc);
-        rbNone = view.findViewById(R.id.rbNone);
-        tvMsisdn = view.findViewById(R.id.txbMsisdn);
-        tvMcc = view.findViewById(R.id.txbMcc);
-        tvMnc = view.findViewById(R.id.txbMnc);
-        tvIpAddress = view.findViewById(R.id.txbIpAddress);
-        btnMobileConnect = view.findViewById(R.id.btnMCDemo);
+    protected void init(View view) {
+        super.init(view);
         discoverySpinner = view.findViewById(R.id.discoverySpinner);
         versionSpinner = view.findViewById(R.id.versionSpinner);
         commonScopesSpinner = view.findViewById(R.id.commonScopesSpinner);
     }
 
-    /**
-     * Describes actions when user clicks 'Back' button.
-     */
-    @Override
-    public void onBackPressed() {
-        getActivity().onBackPressed();
-    }
-
-
-    /**
-     * Checks wich radio button is selected and opens configuration view for it.
-     *
-     * @param view
-     */
-    private void checkRadioButtonsAndSetView(View view) {
-        if (rbMsisdn.isChecked()) {
-            layoutMsisdn.setVisibility(View.VISIBLE);
-            layoutMcc.setVisibility(View.GONE);
-            layoutMnc.setVisibility(View.GONE);
-        } else if (rbMccMnc.isChecked()) {
-            layoutMsisdn.setVisibility(View.GONE);
-            layoutMcc.setVisibility(View.VISIBLE);
-            layoutMnc.setVisibility(View.VISIBLE);
-        } else {
-            layoutMsisdn.setVisibility(View.GONE);
-            layoutMcc.setVisibility(View.GONE);
-            layoutMnc.setVisibility(View.GONE);
-            layoutIpAddress.setVisibility(View.GONE);
-            hideInput(view);
-        }
-    }
 
 
 
-    /**
-     * Waits for callback with the result and starts {@link ResultsActivity} putting in it the results.
-     *
-     * @param result - response from server side application in JSON format.
-     */
-    @Override
-    public void onComplete(String result) {
-        final Intent intent = new Intent(getActivity(), ResultsActivity.class);
-        intent.putExtra(getString(R.string.results_key), result);
-        startActivity(intent);
-    }
 
-    private void hideInput(View view) {
-        InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-    }
 }

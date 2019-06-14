@@ -10,7 +10,7 @@ android {
         minSdkVersion 20
         targetSdkVersion 24
         versionCode 1
-        versionName "4.1.3"
+        versionName "0.0.0"
         resConfigs "en", "hdpi"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"

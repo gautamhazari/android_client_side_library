@@ -21,7 +21,7 @@
     <string name="phone_msisdn_id">MSISDN</string>
     <string name="mcc">Mcc</string>
     <string name="mnc">Mnc</string>
-    <string name="none">Discovery UI</string>
+    <string name="none">None (Discovery UI)</string>
     <string name="ip_address">IP address</string>
     <string name="ip_address_hint">Type your IP address</string>
     <string name="using_msisdn">Using MSISDN</string>
