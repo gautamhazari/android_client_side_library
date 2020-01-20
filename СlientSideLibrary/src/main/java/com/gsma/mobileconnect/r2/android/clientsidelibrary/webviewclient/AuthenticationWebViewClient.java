@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.gsma.mobileconnect.r2.android.clientsidelibrary.R;
 import com.gsma.mobileconnect.r2.android.clientsidelibrary.constants.Constants;
 import com.gsma.mobileconnect.r2.android.clientsidelibrary.interfaces.IAuthenticationWebViewClient;
+import com.gsma.mobileconnect.r2.android.clientsidelibrary.interfaces.ICallback;
 import com.gsma.mobileconnect.r2.android.clientsidelibrary.view.DiscoveryAuthenticationDialog;
 
 /**
@@ -26,6 +27,7 @@ public class AuthenticationWebViewClient extends WebViewClient implements IAuthe
     private ProgressBar progressBar;
     private DiscoveryAuthenticationDialog dialog;
     private String redirectUrl;
+    private ICallback iCallback;
 
     private static final String TAG = AuthenticationWebViewClient.class.getSimpleName();
 
@@ -80,6 +82,7 @@ public class AuthenticationWebViewClient extends WebViewClient implements IAuthe
             return true;
         } else {
             view.loadUrl(url);
+            iCallback.onComplete("abc");
             return false;
         }
     }
