@@ -49,12 +49,13 @@ public class MobileConnectView {
         webView.setWebChromeClient(new WebChromeClient());
         Uri uri = Uri.parse(authenticationUrl);
         String redirectUrl = uri.getQueryParameter("redirect_uri");
-        final AuthenticationWebViewClient webViewClient = new AuthenticationWebViewClient(dialog, progressBar, redirectUrl);
+        final AuthenticationWebViewClient webViewClient = new AuthenticationWebViewClient(dialog, progressBar, redirectUrl, activityContext);
         Map<String, String> additionalHttpHeaders = new ArrayMap<>();
         String version = String.format("Android-%s", RequestUtils.getCurrentLibVersion());
         additionalHttpHeaders.put(Constants.CLIENT_SIDE_VERSION_HEADER, version);
         webView.setWebViewClient(webViewClient);
         webView.loadUrl(authenticationUrl, additionalHttpHeaders);
+
         try {
             dialog.show();
         } catch (final WindowManager.BadTokenException exception) {

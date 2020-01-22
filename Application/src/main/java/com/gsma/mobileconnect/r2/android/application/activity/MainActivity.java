@@ -18,8 +18,9 @@ import android.view.WindowManager;
 import com.gsma.mobileconnect.r2.android.application.R;
 import com.gsma.mobileconnect.r2.android.application.fragments.WithDiscoveryAppFragment;
 import com.gsma.mobileconnect.r2.android.application.fragments.WithoutDiscoveryAppFragment;
+import com.gsma.mobileconnect.r2.android.clientsidelibrary.interfaces.ICallback;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements ICallback {
 
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
@@ -169,5 +170,18 @@ public class MainActivity extends BaseActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+    }
+
+    /**
+     * Waits for callback with the result and starts {@link ResultsActivity} putting in it the results.
+     *
+     * @param result - response from server side application in JSON format.
+     */
+    @Override
+    public void onComplete(String result) {
+        System.out.println("on complete view");
+        final Intent intent = new Intent(this, ResultsActivity.class);
+        intent.putExtra(getString(R.string.results_key), result);
+        startActivity(intent);
     }
 }

@@ -27,7 +27,7 @@ import com.gsma.mobileconnect.r2.android.clientsidelibrary.utils.IpUtils;
 import com.gsma.mobileconnect.r2.android.clientsidelibrary.utils.StringUtils;
 
 
-public class WithDiscoveryAppFragment extends Fragment implements OnBackPressedListener, ICallback {
+public class WithDiscoveryAppFragment extends Fragment implements OnBackPressedListener {
 
     private static final String TAG = WithDiscoveryAppFragment.class.getSimpleName();
 
@@ -52,6 +52,8 @@ public class WithDiscoveryAppFragment extends Fragment implements OnBackPressedL
 
         final View view = inflater.inflate(R.layout.fragment_with_discovery_app, container, false);
         init(view);
+
+        System.out.println("on create view");
 
         cbIp.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -130,6 +132,7 @@ public class WithDiscoveryAppFragment extends Fragment implements OnBackPressedL
                 sessionHandler.startDiscoverySession(getContext(), msisdn, mcc, mnc, ipAddress, getString(R.string.server_endpoint_with_discovery_endpoint));
             }
         });
+//        onComplete("{\"status\":\"failure\",\"action\":\"error\",\"clientName\":null,\"url\":null,\"sdkSession\":null,\"state\":null,\"nonce\":null,\"subscriberId\":null,\"token\":{\"timeReceived\":\"2020-01-21T10:52:11.288+0000\",\"accessToken\":\"5e52c906-6c65-496c-b719-6bcdbfbd4c65\",\"tokenType\":\"Bearer\",\"idToken\":\"eyJhbGciOiJSUzI1NiIsImtpZCI6Im9wZXJhdG9yLWIiLCJ0eXAiOiJKV1QifQ.eyJhY3IiOiIyIiwiYW1yIjpbIlNJTV9PSyJdLCJhdF9oYXNoIjoiUEotYTQtTXM3UmpNYXJWdTltV05sQSIsImF1ZCI6WyJObUkxWkRnM01HTXROakkwWlMwME5qUmlMV0k0TWpZdFltUXlNV0V4TXpVM056QXpPbTl3WlhKaGRHOXlMV0k9Il0sImF1dGhfdGltZSI6MTU3OTYwMzkzMC4wLCJhenAiOiJObUkxWkRnM01HTXROakkwWlMwME5qUmlMV0k0TWpZdFltUXlNV0V4TXpVM056QXpPbTl3WlhKaGRHOXlMV0k9IiwiZGlzcGxheWVkX2RhdGEiOiJkZW1vQXBwU0RLLWRlbW8gYmluZGluZy1kZW1vIGNvbnRleHQiLCJleHAiOjE1Nzk2MDM5OTAsImhhc2hlZF9sb2dpbl9oaW50IjoiMmNiYTIyMzMwNDE0OWJhYWI1ZWZjZTY1YjQyODBhMjI2NTJkZTVjYzYyOWI0NjQ0ODNiMTBjNmU2YTJmNmY2MSIsImlhdCI6MTU3OTYwMzkzMCwiaXNzIjoiaHR0cHM6Ly9vcGVyYXRvci1iLnNhbmRib3gubW9iaWxlY29ubmVjdC5pbyIsIm5vbmNlIjoiZmU2M2M4ZjUtYWQzNC00YzYyLTk4NmItNzc4OTk1OGU3NzllIiwic3ViIjoiMThjYzNjM2ItMGMwNy00NDJhLWI0NWMtNDI4ZmUwNDUzM2UwIn0.PZtiwnKmwnnK04wTzY7Q3euM5VJwSP4-Z7tCl42SEopLohbN9ciluiXpv1Utorsr_2RXUZ7h_G1Cmar1OliPdHYYjbh_WJOC4UtXA-tYe0tRRNHATM8lrQCkc1WNktEBY3KFvJ2d3-HJbMFj2Vv25Mow8QuKIYk5Z85aQFQYEh3J6R9AirFTM5zLXs2q5HHf8o9PTYTZTuZQKVuWIefs_O13X3eZMIbNMGKkXyqFS1Q4oSAnu32QaiRwKkiP8zDuL_owthOrQTJviRmakCd9cxM9X0BIPrIVj7oCGjrbFh8wpMtEuIt1On4zfThpiR054ywF1fWa-b89smbAU-uIkg\",\"refreshToken\":null,\"expiry\":\"2020-01-21T10:53:11.288+0000\",\"expiresIn\":60,\"correlationId\":null},\"tokenValidated\":false,\"identity\":{\"sub\": \"18cc3c3b-0c07-442a-b45c-428fe04533e0\", \"phone_number\": \"+447700900911\", \"updated_at\": \"2020-01-21T10:52:11.850687\"},\"error\":\"Invalid Id Token\",\"description\":\"Token validation failed\",\"outcome\":null}");
         return view;
     }
 
@@ -160,7 +163,7 @@ public class WithDiscoveryAppFragment extends Fragment implements OnBackPressedL
     @Override
     public void onBackPressed() {
         getActivity().onBackPressed();
-    }
+        }
 
 
     /**
@@ -188,17 +191,7 @@ public class WithDiscoveryAppFragment extends Fragment implements OnBackPressedL
 
 
 
-    /**
-     * Waits for callback with the result and starts {@link ResultsActivity} putting in it the results.
-     *
-     * @param result - response from server side application in JSON format.
-     */
-    @Override
-    public void onComplete(String result) {
-        final Intent intent = new Intent(getActivity(), ResultsActivity.class);
-        intent.putExtra(getString(R.string.results_key), result);
-        startActivity(intent);
-    }
+
 
     private void hideInput(View view) {
         InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
