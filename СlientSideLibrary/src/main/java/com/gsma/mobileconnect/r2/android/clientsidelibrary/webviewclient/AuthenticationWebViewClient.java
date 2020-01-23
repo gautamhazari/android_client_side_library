@@ -15,10 +15,12 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.gsma.mobileconnect.r2.android.clientsidelibrary.R;
 import com.gsma.mobileconnect.r2.android.clientsidelibrary.constants.Constants;
 import com.gsma.mobileconnect.r2.android.clientsidelibrary.interfaces.IAuthenticationWebViewClient;
 import com.gsma.mobileconnect.r2.android.clientsidelibrary.interfaces.ICallback;
+import com.gsma.mobileconnect.r2.android.clientsidelibrary.utils.StringUtils;
 import com.gsma.mobileconnect.r2.android.clientsidelibrary.view.DiscoveryAuthenticationDialog;
 
 import org.json.JSONException;
@@ -112,22 +114,14 @@ public class AuthenticationWebViewClient extends WebViewClient implements IAuthe
                         @Override
                         public void onReceiveValue(String html) {
                             Log.d("HTML", html);
-                            System.out.println("HERE!");
-                            System.out.println(html);
-//                            html = "{\"status\":\"failure\",\"action\":\"error\",\"clientName\":null,\"url\":null,\"sdkSession\":null,\"state\":null,\"nonce\":null,\"subscriberId\":null,\"token\":{\"timeReceived\":\"2020-01-22T12:28:22.375+0000\",\"accessToken\":\"73148a35-188d-4a54-9819-5a7b63f0041b\",\"tokenType\":\"Bearer\",\"idToken\":\"eyJhbGciOiJSUzI1NiIsImtpZCI6Im9wZXJhdG9yLWIiLCJ0eXAiOiJKV1QifQ.eyJhY3IiOiIyIiwiYW1yIjpbIlNJTV9PSyJdLCJhdF9oYXNoIjoiZ1NfTVV3LWJ5enhIY1VtakNFR2JxUSIsImF1ZCI6WyJObUkxWkRnM01HTXROakkwWlMwME5qUmlMV0k0TWpZdFltUXlNV0V4TXpVM056QXpPbTl3WlhKaGRHOXlMV0k9Il0sImF1dGhfdGltZSI6MTU3OTY5NjEwMS4wLCJhenAiOiJObUkxWkRnM01HTXROakkwWlMwME5qUmlMV0k0TWpZdFltUXlNV0V4TXpVM056QXpPbTl3WlhKaGRHOXlMV0k9IiwiZGlzcGxheWVkX2RhdGEiOiJkZW1vQXBwU0RLLWRlbW8gYmluZGluZy1kZW1vIGNvbnRleHQiLCJleHAiOjE1Nzk2OTYxNjEsImhhc2hlZF9sb2dpbl9oaW50IjoiYjQ2YjA3Mjc0NWVkOTVkNzNmOWFjMjJmOTAzYTc2YmQwMDYwNzE5YWI4ZTVhZTg2NDM4YWI1YTZmMTBkZDdiYiIsImlhdCI6MTU3OTY5NjEwMSwiaXNzIjoiaHR0cHM6Ly9vcGVyYXRvci1iLnNhbmRib3gubW9iaWxlY29ubmVjdC5pbyIsIm5vbmNlIjoiOGVmN2UxNmItMTJmYy00YzIwLWFmNjgtZmIwOTQ0MTQ2N2E4Iiwic3ViIjoiMThjYzNjM2ItMGMwNy00NDJhLWI0NWMtNDI4ZmUwNDUzM2UwIn0.Vv7ReAyP7RAFCSN93-4oUlkRRlAwtTFOS6X9NMtwdFMzzGCzX4LNvvc_eU3QFyHbiSiwTQPepFJBvBcOvv-Xg_mr0XDb7kBE70IJ-kIfk9IKA2Cpxk50f_tZlegmk3EBB_sah4dcBqgxPYyDlRxAVLpHZVIDRuQbFsDYen03CgaDX0tmoPQT7dQ_xvdeAOjrkuQS7ixLh3gmo5lSK5bSTb_Tx7GhUn967F-QXJmYlEUjVdBBPGHefIEpjYphFxsXFDzPv0Yd9Df5jDqPE5fBlwLjKHQIey2JC7YyfHvliFMFwdEENMNwBLNLPsdm4GzDTOI-xsuljjklWNQeGkZINw\",\"refreshToken\":null,\"expiry\":\"2020-01-22T12:29:22.375+0000\",\"expiresIn\":60,\"correlationId\":null},\"tokenValidated\":false,\"identity\":{\"sub\": \"18cc3c3b-0c07-442a-b45c-428fe04533e0\", \"phone_number\": \"+447700900911\", \"updated_at\": \"2020-01-22T12:28:22.950211\"},\"error\":\"Invalid Id Token\",\"description\":\"Token validation failed\",\"outcome\":null}";
-                            try {
-                                html = new String(html.getBytes(), StandardCharsets.US_ASCII.name());
-
-                            } catch (UnsupportedEncodingException e) {
-                                e.printStackTrace();
-                            }
-                            Document doc = Jsoup.parse(html);
-                            String content = doc.body().getElementsByTag("pre").text();
-                            System.out.println(content);
-                            callback.onComplete(content);
+                            html = StringUtils.removeUTFCharacters(html);
+                            String content = Jsoup.parse(html).body().getElementsByTag("pre").text();
                             try {
                                 new JSONObject(content);
-                            } catch (JSONException ex) {}
+                                callback.onComplete(content);
+                            } catch (JSONException ex) {
+                                Log.d("doesn't content json", html);
+                            }
                         }
                     });
         }
